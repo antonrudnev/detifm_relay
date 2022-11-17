@@ -1,0 +1,15 @@
+services:
+  ffserver:
+    image: detifm-ffserver
+    build: ffserver/.
+    tty: true
+    ports:
+      - "8090:8090"
+
+  web:
+    image: httpd:2.4.54
+    ports:
+      - "80:80"
+    volumes:
+      - "./web/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro"
+      - "./web/prg/:/usr/local/apache2/conf/prg/:ro"
