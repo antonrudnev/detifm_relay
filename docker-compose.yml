@@ -2,6 +2,9 @@ services:
   ffserver:
     image: detifm-ffserver
     build: ffserver/.
+    volumes:
+      - "./ffserver/ffserver.conf:/etc/ffserver.conf:ro"
+
 
   web:
     image: httpd:2.4.54

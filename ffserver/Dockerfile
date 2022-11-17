@@ -11,8 +11,6 @@ RUN apt update && \
     apt purge -y build-essential wget yasm && \
     apt -y autoremove
 
-COPY ffserver.conf /etc
-
 EXPOSE 8090
 
 CMD ["ffserver"]
