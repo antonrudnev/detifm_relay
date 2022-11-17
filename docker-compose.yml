@@ -2,9 +2,6 @@ services:
   ffserver:
     image: detifm-ffserver
     build: ffserver/.
-    tty: true
-    ports:
-      - "8090:8090"
 
   web:
     image: httpd:2.4.54
