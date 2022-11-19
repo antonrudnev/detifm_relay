@@ -12,4 +12,4 @@ services:
       - "80:80"
     volumes:
       - "./web/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro"
-      - "./web/prg/:/usr/local/apache2/conf/prg/:ro"
+      - "./web/etc/:/usr/local/apache2/conf/etc/:ro"
