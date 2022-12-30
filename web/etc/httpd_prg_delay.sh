@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 tz="America/New_York"
 
@@ -8,11 +8,12 @@ do
     then
         now=$(date --utc)
         now_hr=$(TZ=$tz date -d "$now" +%H)
+        now_mn=$(TZ=$tz date -d "$now" +%M)
         tz_dif=$(($(TZ=Europe/Moscow date -d "$now" +%:::z)-$(TZ=$tz date -d "$now" +%:::z)))
-        if [ "$now_hr" -ge 0 -a "$now_hr" -lt 9 ]
+	if (( $now_hr >= 0 && $now_hr < 9 ))
         then
             shft=$((tz_dif+1))
-        elif [ "$now_hr" -ge 17 -a "$now_hr" -lt 21 ]
+    elif (( $now_hr >= 17 && ($now_hr < 20 || ($now_hr < 21 && $now_mn < 45)) ))
         then
             shft=$((tz_dif-1))
         else
